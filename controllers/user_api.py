@@ -16,4 +16,30 @@ def index():
 
     
 
+
+def create():
+    if request.method == 'POST':
+
+
+        user = User(name=request.get_json().get('name'),
+                    password=request.get_json().get('password'),
+                    email=request.get_json().get('email'),
+                    apellido=request.get_json().get('apellido'),
+                    birthdate=request.get_json().get('birthdate')
+                    )
+        
+
+        db.session.add(user)
+        db.session.commit()
+
+
+def delete():
     
+
+    if request.method == 'POST':
+        user = User.query.filter_by(id=request.get_json().get('id')).first()
+        db.session.delete(user)
+        db.session.commit()
+
+
+
