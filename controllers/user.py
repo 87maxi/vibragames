@@ -2,7 +2,8 @@
 from models.user import User, db
 
 from flask import  render_template, redirect, url_for
-from flask import request
+from flask import request, jsonify
+
 from pprint import pprint
 
 
@@ -26,17 +27,22 @@ def create():
                     apellido=request.form.get('apellido'),
                     birthdate=request.form.get('birthdate')
                     )
+        
+
         db.session.add(user)
         db.session.commit()
 
-
+        
         return redirect(url_for('blueprint.index'))
     
 
-    
+def edit(id):
+    user= User.query.get(id)
+
+    d = user.__dict__
+    del d['_sa_instance_state']
+    return jsonify(d)
 
 
-
-def edit():
-    
-    pass
+def update(id):
+    User.query.filter_by(id=id).first()
