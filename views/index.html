@@ -33,7 +33,7 @@ Listado de usuarios
         <td>{{d.birthdate}}</td>
         <td>{{d.email}}</td>
         <td>
-          <a aria-label="Delete" class="btn btn-danger" href="delete/{{d.id}}">
+          <a aria-label="Delete" class="btn btn-danger" onclick='delete_element("{{d.id}}");'>
             <i aria-hidden="true" class="fa fa-trash" title="Delete this item?"></i>
           </a>
           <a aria-label="" class="btn btn-danger" onclick='load_data("{{d.id}}");'>
@@ -131,6 +131,19 @@ function remove_hidden(){
 
 }
 
+
+function delete_element(id){
+  
+  $.ajax({
+        url: "delete/"+id,
+        type: 'POST',
+        dataType: 'json',
+        success: function(res) {
+          console.log(res)
+          location.reload();
+        }
+    });
+}
 
 </script>
 {% endblock %}

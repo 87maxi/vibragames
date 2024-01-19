@@ -6,7 +6,7 @@ from flask import request, jsonify
 
 from pprint import pprint
 
-
+from sqlalchemy import delete, select
 
 
 def index():
@@ -46,3 +46,14 @@ def edit(id):
 
 def update(id):
     User.query.filter_by(id=id).first()
+
+
+def delete(idx):
+    
+
+    if request.method == 'POST':
+        user = User.query.filter_by(id=idx).first()
+        db.session.delete(user)
+        db.session.commit()
+
+    return redirect(url_for('blueprint.index'))
