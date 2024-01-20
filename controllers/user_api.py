@@ -2,7 +2,7 @@ from models.user import User, db
 from flask import request, jsonify
 from pprint import pprint
 import json 
-from lib.encrypt import encript_password
+from lib.encrypt import EncrytPasswd
 import base64 
 import hashlib
 import bcrypt
@@ -28,7 +28,7 @@ def create():
 
 
         user = User(name=request.get_json().get('name'),
-                    password= encript_password(request.get_json().get('password')),
+                    password= EncrytPasswd().encript_password(request.get_json().get('password')),
                     email=request.get_json().get('email'),
                     apellido=request.get_json().get('apellido'),
                     birthdate=request.get_json().get('birthdate')
@@ -51,7 +51,7 @@ def delete():
 
 def get_user():    
     if request.method == 'POST':
-        user = User.query.filter_by(password=encript_password( request.get_json().get('password'))).first()
+        user = User.query.filter_by(password=EncrytPasswd().encript_password(request.get_json().get('password'))).first()
 
 
 

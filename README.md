@@ -45,3 +45,8 @@ curl -i -H 'Content-Type: application/json' -d '{"name":"asdfasdf", "apellido":"
 
 curl -i -H 'Content-Type: application/json' -d '{"id":"6"}' -X POST  http://127.0.0.1:5000/api/v1/delete
 
+
+## validacion por password ##
+
+curl -i -H 'Content-Type: application/json' -d '{"password":"passwd"}' -X POST  http://127.0.0.1:5000/api/v1/get_user
+
