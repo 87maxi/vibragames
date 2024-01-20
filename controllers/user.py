@@ -1,12 +1,8 @@
 
 from models.user import User, db
-
 from flask import  render_template, redirect, url_for
 from flask import request, jsonify
-
-from pprint import pprint
-
-from sqlalchemy import delete, select
+from lib.encrypt import encript_password
 
 
 def index():
@@ -22,7 +18,7 @@ def create():
 
 
         user = User(name=request.form.get('name'),
-                    password=request.form.get('password'),
+                    password= encript_password(request.form.get('password')),
                     email=request.form.get('email'),
                     apellido=request.form.get('apellido'),
                     birthdate=request.form.get('birthdate')
