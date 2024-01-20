@@ -10,41 +10,41 @@ Listado de usuarios
 </h2>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">crear usuario</button>
+<button id="create_user"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">crear usuario</button>
 
-
-<table class="table table-striped table-dark">
-	<thead>
-	  <tr>
-		<th scope="col">id</th>
-		<th scope="col">nombre</th>
-		<th scope="col">apellido</th>
-		<th scope="col">fecha de cumpleaños</th>
-		<th scope="col">email</th>
-		<th>acciones</th>
-	  </tr>
-	</thead>
-	<tbody>
-    {% for d in users %}
-      <tr>
-        <th scope="row">{{d.id}}</th>
-        <td>{{d.name}}</td>
-        <td>{{d.apellido}}</td>
-        <td>{{d.birthdate}}</td>
-        <td>{{d.email}}</td>
-        <td>
-          <a aria-label="Delete" class="btn btn-danger" onclick='delete_element("{{d.id}}");'>
-            <i aria-hidden="true" class="fa fa-trash" title="Delete this item?"></i>
-          </a>
-          <a aria-label="" class="btn btn-danger" onclick='load_data("{{d.id}}");'>
-            <i class="fa fa-edit"></i>
-          </a>
-        </td>
-      </tr>
-    {% endfor %}
-  </table>
+<div id="vibragames_table">
+    <table class="table table-striped  nowrap" data-toolbar="#toolbar" id="vibragames">
+      <thead>
+        <tr>
+        <th scope="col">id</th>
+        <th scope="col">nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">fecha de cumpleaños</th>
+        <th scope="col">email</th>
+        <th>acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in users %}
+          <tr>
+            <th scope="row">{{d.id}}</th>
+            <td>{{d.name}}</td>
+            <td>{{d.apellido}}</td>
+            <td>{{d.birthdate}}</td>
+            <td>{{d.email}}</td>
+            <td>
+              <a aria-label="Delete" class="btn btn-danger" onclick='delete_element("{{d.id}}");'>
+                <i aria-hidden="true" class="fa fa-trash" title="Delete this item?"></i>
+              </a>
+              <a aria-label="" class="btn btn-danger" onclick='load_data("{{d.id}}");'>
+                <i class="fa fa-edit"></i>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+</div>
 {% endblock %}
-
 
 
 

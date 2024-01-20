@@ -50,3 +50,57 @@ function delete_element(id){
         }
     });
 }
+
+
+a = function(b){
+  data =  JSON.stringify(b)
+
+  console.log(data)
+
+}
+
+
+function list_elements(){
+  
+  $(document).ready(function(){
+
+  $.ajax({
+        url: "api/v1",
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+          a(res)
+          
+        }
+    });
+
+  })
+}
+
+list_elements()
+
+
+//exporte les données sélectionnées
+var $table = $('#table');
+    $(function () {
+        $('#toolbar').find('select').change(function () {
+            $table.bootstrapTable('refreshOptions', {
+                exportDataType: $(this).val()
+            });
+        });
+    })
+
+		var trBoldBlue = $("table");
+
+	$(trBoldBlue).on("click", "tr", function (){
+			$(this).toggleClass("bold-blue");
+	});
+
+
+  $(document).ready(function() {
+    var table = $('#vibragames').DataTable({
+        searchPanes: true
+    });
+    table.searchPanes.container().prependTo(table.table().container());
+    table.searchPanes.resizePanes();
+});
