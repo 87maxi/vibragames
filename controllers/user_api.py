@@ -58,6 +58,21 @@ def get_user():
     return jsonify( {'returm':  user.email } ) 
 
     
+def update():
+    if request.method == 'POST':
+
+        data= {           
+            "name":request.get_json().get('name'),
+            "password": EncrytPasswd().encript_password(request.get_json().get('password')),
+            "email":request.get_json().get('email'),
+            "apellido":request.get_json().get('apellido'),
+            "birthdate":request.get_json().get('birthdate')
+            
+         }
+
+    
+    db.session.query(User).filter(User.id==request.get_json().get('id')).update(data)
+    db.session.commit()
 
     
 

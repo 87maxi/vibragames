@@ -39,7 +39,7 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 
 ## create element ##
 
-curl -i -H 'Content-Type: application/json' -d '{"name":"asdfasdf", "apellido":"paredes100", "email":"lkj@123.net123","birthdate":"2022-01-15", "password":"adsfasdfasdf"  }' -X POST  http://127.0.0.1:5000/api/v1/
+curl -i -H 'Content-Type: application/json' -d '{"name":"asdfasdf", "apellido":"paredes100", "email":"lkj@123.net123","birthdate":"2022-01-15", "password":"adsfasdfasdf"  }' -X POST  http://127.0.0.1:5000/api/v1
 
 ## delete element ##
 
@@ -50,3 +50,6 @@ curl -i -H 'Content-Type: application/json' -d '{"id":"6"}' -X POST  http://127.
 
 curl -i -H 'Content-Type: application/json' -d '{"password":"passwd"}' -X POST  http://127.0.0.1:5000/api/v1/get_user
 
+## Update ##
+
+curl -i -H 'Content-Type: application/json' -d '{"name":"asdfasdf", "apellido":"paredes100", "email":"lkj@1mkkkkm8798798m","birthdate":"2022-01-15", "password":"password", "id":"2"  }' -X POST  http://127.0.0.1:5000/api/v1/update

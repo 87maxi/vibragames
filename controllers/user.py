@@ -54,7 +54,7 @@ def update():
             "id": request.form.get('id')
          }
 
-    pprint("asdfadsfasd")
+    
     db.session.query(User).filter(User.id==request.form.get('id')).update(data)
     db.session.commit()
 
