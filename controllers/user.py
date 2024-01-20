@@ -57,7 +57,7 @@ def update():
     
     db.session.query(User).filter(User.id==request.form.get('id')).update(data)
     db.session.commit()
-
+    return redirect(url_for('blueprint.index'))
 
 def delete(idx):
     
