@@ -1,26 +1,44 @@
 
-{% extends "layout.html" %}
-
-{% block modal %}
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">crear usuario</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Crear usuario</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <form action="/create" method="POST">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input name="name" type="text" class="form-control" id="nombre">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Apellido:</label>
+            <input type="text" name="apellido"  class="form-control" id="apellido">
+          </div>
+          <div class="form-group">
+            <label for="recipient-email" class="col-form-label">email:</label>
+            <input type="text" name="email" class="form-control" placeholder="Your email ID.." id="email" >
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-form-label">password:</label>
+            <input type="password" name="password" class="form-control" placeholder="password" id="password" >
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label"> fecha de cumpleaños</label>
+            <div class="md-form md-outline input-with-post-icon datepicker">
+              <input name="birthdate" placeholder="Select date" type="date" id="birthdate" class="form-control">
+            </div>  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="remove_hidden()" data-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Guardar" onclick="remove_hidden()" />
+          </div>
+        </form>
+      </div>
+      
     </div>
-  </div>>
-
-{% endblock %}
+  </div>
+</div>

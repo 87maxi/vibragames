@@ -17,7 +17,7 @@ function load_data(id){
         type: 'GET',
         dataType: 'json',
         success: function(res) {
-            console.log(res.name)
+            console.log(res)
             $("#nombre").val(res.name)
             $("#apellido").val(res.apellido)
             $("#password").val(res.password)
